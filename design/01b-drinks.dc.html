@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>주류 음료 메뉴</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:800px;height:1280px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:96px;flex:none;box-sizing:border-box;padding:0 32px;background:#FFFFFF;border-bottom:1px solid #D5E2DE;display:flex;align-items:center;justify-content:space-between">
+<div style="display:flex;align-items:baseline;gap:12px">
+<span style="font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:1px;color:#007A64">[매장명]</span>
+<span style="font-size:20px;color:#4A5B57">주문하기</span>
+</div>
+<button style="height:56px;min-width:120px;padding:0 20px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#12201D">한국어 · EN</button>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:20px 32px 8px;display:flex;align-items:center;gap:16px">
+<div role="tablist" aria-label="매장 또는 포장" style="flex:1;height:64px;box-sizing:border-box;padding:4px;border-radius:18px;background:#E3ECE9;display:flex;gap:4px">
+<button role="tab" aria-selected="true" style="flex:1;border:0;border-radius:14px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:22px;font-weight:700">매장</button>
+<button role="tab" aria-selected="false" style="flex:1;border:0;border-radius:14px;background:transparent;color:#4A5B57;font-family:inherit;font-size:22px;font-weight:700">포장</button>
+</div>
+<span style="flex:none;font-size:18px;color:#4A5B57">시작 화면 선택값 · 주문서에 인쇄</span>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:8px 32px 12px;display:flex;gap:10px">
+<a href="Main.dc.html" style="height:56px;box-sizing:border-box;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-size:20px;text-decoration:none;display:flex;align-items:center">전체</a>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px">고기</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px">식사</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px">찌개 · 탕</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px">사이드</button>
+<button aria-pressed="true" style="height:56px;padding:0 24px;border:0;border-radius:28px;background:#12201D;color:#FFFFFF;font-family:inherit;font-size:20px;font-weight:700">주류 · 음료</button>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:4px 32px 8px">
+<div style="box-sizing:border-box;border-radius:16px;background:#FDE8E6;border:1px solid #C81E3F;padding:14px 18px;display:flex;align-items:center;gap:14px">
+<span style="width:44px;height:44px;flex:none;border-radius:22px;background:#C81E3F;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;display:flex;align-items:center;justify-content:center">19</span>
+<span style="font-size:18px;line-height:26px;color:#8F1D14"><b>주류는 만 19세 이상만 주문할 수 있어요.</b> 가져다 드릴 때 직원이 신분증을 확인해요.</span>
+</div>
+</div>
+
+<div style="flex:1;min-height:0;box-sizing:border-box;padding:12px 32px 24px;overflow:hidden">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="9">
+<div style="position:relative;box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:16px;overflow:hidden">
+<div style="height:110px;background:{{item.tint}};display:flex;align-items:center;justify-content:center;font-size:16px;color:#4A5B57">사진</div>
+<sc-if value="{{item.adult}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:10px;top:10px;width:36px;height:36px;border-radius:18px;background:#C81E3F;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">19</div>
+</sc-if>
+<div style="padding:12px 16px 14px;display:flex;flex-direction:column;gap:2px">
+<div style="font-size:21px;font-weight:700;line-height:28px">{{item.name}}</div>
+<div style="font-size:16px;color:#4A5B57;line-height:22px">{{item.unit}}</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:23px;font-weight:700;line-height:30px">{{item.price}}원</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="height:160px;flex:none;box-sizing:border-box;padding:0 32px;background:#FFFFFF;border-top:1px solid #D5E2DE;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<div style="display:flex;flex-direction:column;gap:2px">
+<span style="font-size:20px;color:#4A5B57">담은 메뉴 8개 · 돼지갈비 3인분</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:40px;font-weight:700;line-height:52px">72,000원</span>
+</div>
+<button style="width:300px;height:88px;border:0;border-radius:20px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:26px;font-weight:700">주문 확인 ›</button>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":800,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      items: [
+        { name: '소주', unit: '360ml', price: '5,000', tint: '#E3EEF2', adult: true },
+        { name: '맥주', unit: '500ml 병', price: '5,000', tint: '#FBF0CF', adult: true },
+        { name: '생맥주', unit: '500cc', price: '5,000', tint: '#F6E8C4', adult: true },
+        { name: '막걸리', unit: '750ml', price: '5,000', tint: '#F4F1EA', adult: true },
+        { name: '과일 소주', unit: '360ml', price: '5,000', tint: '#FDEFF2', adult: true },
+        { name: '콜라', unit: '355ml', price: '2,000', tint: '#EDE3E3', adult: false },
+        { name: '사이다', unit: '355ml', price: '2,000', tint: '#E3F7F2', adult: false },
+        { name: '제로 콜라', unit: '355ml', price: '2,000', tint: '#E6EBF3', adult: false },
+        { name: '식혜', unit: '후식 · 1잔', price: '2,000', tint: '#F6EEDC', adult: false }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

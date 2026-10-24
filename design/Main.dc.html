@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>메뉴 선택</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:800px;height:1280px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:96px;flex:none;box-sizing:border-box;padding:0 32px;background:#FFFFFF;border-bottom:1px solid #D5E2DE;display:flex;align-items:center;justify-content:space-between">
+<div style="display:flex;align-items:baseline;gap:12px">
+<span style="font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:1px;color:#007A64">[매장명]</span>
+<span style="font-size:20px;color:#4A5B57">주문하기</span>
+</div>
+<button style="height:56px;min-width:120px;padding:0 20px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#12201D">한국어 · EN</button>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:20px 32px 8px;display:flex;align-items:center;gap:16px">
+<div role="tablist" aria-label="매장 또는 포장" style="flex:1;height:64px;box-sizing:border-box;padding:4px;border-radius:18px;background:#E3ECE9;display:flex;gap:4px">
+<button role="tab" aria-selected="{{dineSel}}" style="flex:1;border:0;border-radius:14px;background:{{dineBg}};color:{{dineInk}};font-family:inherit;font-size:22px;font-weight:700">매장</button>
+<button role="tab" aria-selected="{{takeSel}}" style="flex:1;border:0;border-radius:14px;background:{{takeBg}};color:{{takeInk}};font-family:inherit;font-size:22px;font-weight:700">포장</button>
+</div>
+<span style="flex:none;font-size:18px;color:#4A5B57">시작 화면 선택값 · 주문서에 인쇄</span>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:8px 32px 12px;display:flex;gap:10px">
+<button style="height:56px;padding:0 24px;border:0;border-radius:28px;background:#12201D;color:#FFFFFF;font-family:inherit;font-size:20px;font-weight:700">전체</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px;font-weight:500">고기</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px;font-weight:500">식사</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px;font-weight:500">찌개 · 탕</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:20px;font-weight:500">사이드</button>
+<a href="01b-drinks.dc.html" style="height:56px;box-sizing:border-box;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;color:#12201D;font-size:20px;font-weight:500;text-decoration:none;display:flex;align-items:center">주류 · 음료</a>
+</div>
+
+<div style="flex:1;min-height:0;box-sizing:border-box;padding:12px 32px 24px;overflow:hidden">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="9">
+<div style="position:relative;box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:16px;overflow:hidden;opacity:{{item.opacity}}">
+<div style="height:140px;background:{{item.tint}};display:flex;align-items:center;justify-content:center;font-size:16px;color:#4A5B57">사진</div>
+<sc-if value="{{item.hasBadge}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:12px;top:12px;height:32px;padding:0 12px;border-radius:16px;background:#FEF3D7;color:#7A4A00;font-size:16px;font-weight:700;display:flex;align-items:center">추천</div>
+</sc-if>
+<sc-if value="{{item.hasQty}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:20px;background:#007A64;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center">{{item.qty}}</div>
+</sc-if>
+<sc-if value="{{item.soldOut}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:0;right:0;top:0;height:140px;background:rgba(18,32,29,0.55);color:#FFFFFF;font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center">품절</div>
+</sc-if>
+<div style="padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px">
+<div style="font-size:22px;font-weight:700;line-height:30px">{{item.name}}</div>
+<div style="font-size:16px;color:#4A5B57;line-height:22px">{{item.unit}}</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;line-height:32px">{{item.price}}원</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="height:160px;flex:none;box-sizing:border-box;padding:0 32px;background:#FFFFFF;border-top:1px solid #D5E2DE;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<div style="display:flex;flex-direction:column;gap:2px">
+<span style="font-size:20px;color:#4A5B57">담은 메뉴 8개 · 돼지갈비 3인분</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:40px;font-weight:700;line-height:52px">72,000원</span>
+</div>
+<button style="width:300px;height:88px;border:0;border-radius:20px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:26px;font-weight:700">주문 확인 ›</button>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"orderType":{"editor":"enum","options":["매장","포장"],"default":"매장"},"$preview":{"width":800,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dine = (this.props.orderType ?? '매장') === '매장';
+    const tabs = {
+      dineSel: dine, takeSel: !dine,
+      dineBg: dine ? '#007A64' : 'transparent', dineInk: dine ? '#FFFFFF' : '#4A5B57',
+      takeBg: dine ? 'transparent' : '#007A64', takeInk: dine ? '#4A5B57' : '#FFFFFF'
+    };
+    const base = [
+      { name: '돼지갈비', unit: '1인분 250g', price: '16,000', tint: '#F4DCCB', qty: 3, badge: true },
+      { name: '소갈비', unit: '1인분 200g', price: '32,000', tint: '#EFD3C4' },
+      { name: '양념 LA갈비', unit: '1인분 300g', price: '28,000', tint: '#F2D8C6' },
+      { name: '돼지 생갈비', unit: '1인분 250g', price: '17,000', tint: '#F6E2D6' },
+      { name: '갈비탕', unit: '1그릇', price: '13,000', tint: '#F3E9D9' },
+      { name: '물냉면', unit: '식사 · 1그릇', price: '9,000', tint: '#E3EEF2', qty: 2 },
+      { name: '된장찌개', unit: '고기 주문 시', price: '4,000', tint: '#EFE3CF', qty: 1 },
+      { name: '공깃밥', unit: '1공기', price: '1,000', tint: '#F4F1EA', qty: 2 },
+      { name: '육회', unit: '200g', price: '23,000', tint: '#F6D6D2', soldOut: true }
+    ];
+    return {
+      ...tabs,
+      items: base.map((b) => ({
+        ...b,
+        hasQty: !!b.qty,
+        hasBadge: !!b.badge,
+        soldOut: !!b.soldOut,
+        opacity: b.soldOut ? 0.6 : 1
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

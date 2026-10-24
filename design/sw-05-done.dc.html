@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>소프트웨어형 주문 완료</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;overflow:hidden">
+
+<div style="flex:1;box-sizing:border-box;padding:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
+<div style="width:96px;height:96px;border-radius:48px;background:#007A64;display:flex;align-items:center;justify-content:center"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></div>
+<span style="font-size:36px;font-weight:900">주문이 접수되었어요</span>
+<div style="box-sizing:border-box;width:520px;padding:24px 0;border-radius:24px;background:#E3F7F2;display:flex;flex-direction:column;align-items:center;gap:4px">
+<span style="font-size:20px;color:#00473A">매장 · 호출번호</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:104px;font-weight:700;line-height:116px;color:#007A64">A-017</span>
+</div>
+<span style="font-size:20px;color:#4A5B57">번호를 부르면 자리에서 기다려 주세요. 고기는 직원이 직접 구워 드려요.</span>
+<div style="display:flex;gap:16px;margin-top:12px">
+<button style="width:240px;height:76px;border:2px solid #007A64;border-radius:18px;background:#FFFFFF;color:#007A64;font-family:inherit;font-size:22px;font-weight:700">영수증 출력</button>
+<a href="sw-00-start.dc.html" style="width:240px;height:76px;box-sizing:border-box;border-radius:18px;background:#007A64;color:#FFFFFF;font-size:22px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center">처음으로</a>
+</div>
+<span style="font-size:17px;color:#4A5B57">30초 뒤 처음 화면으로 돌아가요</span>
+</div>
+
+<div style="width:440px;flex:none;box-sizing:border-box;background:#E3ECE9;padding:48px 40px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<span style="font-size:17px;font-weight:700;color:#4A5B57">주방 프린터 출력 예시</span>
+<div style="box-sizing:border-box;width:360px;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:4px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;font-family:'JetBrains Mono','Noto Sans KR',monospace;font-size:19px;line-height:28px">
+<div style="text-align:center;font-size:20px;font-weight:700">[가게 이름] 주방</div>
+<div style="display:flex;justify-content:space-between;align-items:center;font-weight:700"><span style="font-size:24px">A-017</span><span style="box-sizing:border-box;border:3px solid #12201D;padding:2px 14px;font-size:30px;line-height:40px">매장</span></div>
+<div style="border-top:2px dashed #9BB0AB"></div>
+<div style="display:flex;justify-content:space-between;font-weight:700"><span>돼지갈비</span><span>3인분</span></div>
+<div style="display:flex;justify-content:space-between"><span>물냉면</span><span>x2</span></div>
+<div style="font-size:16px;color:#4A5B57;padding-left:12px">· 고기 후 제공</div>
+<div style="display:flex;justify-content:space-between"><span>된장찌개</span><span>x1</span></div>
+<div style="display:flex;justify-content:space-between"><span>공깃밥</span><span>x2</span></div>
+<div style="border-top:2px dashed #9BB0AB"></div>
+<div style="display:flex;justify-content:space-between;font-size:16px;color:#4A5B57"><span>더치페이 3건</span><span>접수 18:42</span></div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

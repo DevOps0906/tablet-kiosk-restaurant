@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>세팅 2 매장 정보</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;overflow:hidden">
+
+<div style="width:300px;flex:none;box-sizing:border-box;background:#12201D;color:#FFFFFF;padding:36px 24px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:#00C9A7">[서비스명]</span><span style="font-size:16px;color:#B9CBC6">사장님 키오스크 설정</span></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<div style="height:56px;box-sizing:border-box;padding:0 14px;border-radius:14px;background:{{s.bg}};display:flex;align-items:center;gap:12px">
+<span style="width:32px;height:32px;flex:none;box-sizing:border-box;border-radius:16px;background:{{s.dot}};border:{{s.ring}};color:{{s.dotInk}};font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{s.mark}}</span>
+<span style="font-size:18px;font-weight:{{s.weight}};color:{{s.ink}}">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:auto;box-sizing:border-box;border-radius:14px;background:#1E312C;padding:16px;font-size:15px;line-height:24px;color:#B9CBC6">막히면 원격으로 도와드려요<br><b style="color:#FFFFFF">[고객센터 번호]</b></div>
+</div>
+
+<div style="flex:1;box-sizing:border-box;padding:44px 56px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:17px;font-weight:700;color:#007A64">2 / 5</span>
+<span style="font-size:32px;font-weight:700;line-height:42px">손님에게 보일 우리 가게 정보</span>
+</div>
+
+<div style="flex:1;min-height:0;display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<label style="display:flex;flex-direction:column;gap:8px;font-size:18px;font-weight:700">가게 이름<input readonly value="[가게 이름] 숯불갈비" style="height:56px;box-sizing:border-box;border:2px solid #007A64;border-radius:14px;background:#FFFFFF;padding:0 16px;font-family:inherit;font-size:20px;font-weight:400;color:#12201D"></label>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:18px;font-weight:700">업종</span>
+<div style="display:flex;gap:10px">
+<button aria-pressed="true" style="height:48px;padding:0 20px;border:0;border-radius:24px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:18px;font-weight:700">식당</button>
+<button style="height:48px;padding:0 20px;border:2px solid #D5E2DE;border-radius:24px;background:#FFFFFF;font-family:inherit;font-size:18px;color:#12201D">카페</button>
+<button style="height:48px;padding:0 20px;border:2px solid #D5E2DE;border-radius:24px;background:#FFFFFF;font-family:inherit;font-size:18px;color:#12201D">버거 · 분식</button>
+<button style="height:48px;padding:0 20px;border:2px solid #D5E2DE;border-radius:24px;background:#FFFFFF;font-family:inherit;font-size:18px;color:#12201D">기타</button>
+</div></div>
+<div style="display:flex;gap:14px">
+<button style="flex:1;height:96px;box-sizing:border-box;border:2px dashed #9BB0AB;border-radius:16px;background:#FFFFFF;font-family:inherit;color:#33433F;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><span style="font-size:18px;font-weight:700">로고 올리기</span><span style="font-size:15px;color:#4A5B57">없으면 가게 이름 글자로</span></button>
+<button style="flex:1;height:96px;box-sizing:border-box;border:2px dashed #9BB0AB;border-radius:16px;background:#FFFFFF;font-family:inherit;color:#33433F;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><span style="font-size:18px;font-weight:700">대표 사진 찍기</span><span style="font-size:15px;color:#4A5B57">시작 화면 배경</span></button>
+</div>
+<div style="display:flex;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:18px;font-weight:700">주문 방식</span><div style="display:flex;gap:8px"><span style="height:44px;padding:0 16px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:17px;font-weight:700;display:flex;align-items:center">✓ 매장</span><span style="height:44px;padding:0 16px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:17px;font-weight:700;display:flex;align-items:center">✓ 포장</span></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:18px;font-weight:700">손님 호출</span><div style="display:flex;gap:8px"><span style="height:44px;padding:0 16px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:17px;font-weight:700;display:flex;align-items:center">호출번호 출력</span></div></div>
+</div>
+</div>
+
+<div style="width:380px;flex:none;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:16px;font-weight:700;color:#4A5B57">미리보기 · 손님 시작 화면</span>
+<div style="height:238px;box-sizing:border-box;border-radius:16px;border:8px solid #12201D;overflow:hidden;display:flex">
+<div style="flex:1;background:#33433F;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><span style="width:44px;height:44px;border-radius:22px;background:#007A64;color:#FFFFFF;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">로고</span><span style="font-size:14px;font-weight:700;color:#FFFFFF">[가게 이름] 숯불갈비</span></div>
+<div style="flex:1;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px"><span style="font-size:12px;font-weight:700">어디서 드시나요?</span><div style="display:flex;gap:6px"><span style="width:56px;height:56px;border-radius:8px;background:#007A64;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">매장</span><span style="width:56px;height:56px;border-radius:8px;border:2px solid #D5E2DE;box-sizing:border-box;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">포장</span></div></div>
+</div>
+<span style="font-size:15px;line-height:22px;color:#4A5B57">로고와 사진을 바꾸면 바로 반영돼요. 프랜차이즈처럼 꾸밀 필요 없이 우리 가게 그대로 보여주세요.</span>
+</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;gap:14px">
+<a href="set-01-start.dc.html" style="height:60px;box-sizing:border-box;padding:0 28px;border:2px solid #D5E2DE;border-radius:16px;background:#FFFFFF;color:#12201D;font-size:20px;font-weight:700;text-decoration:none;display:flex;align-items:center">‹ 이전</a>
+<a href="set-03-menu.dc.html" style="height:60px;box-sizing:border-box;padding:0 36px;border-radius:16px;background:#007A64;color:#FFFFFF;font-size:20px;font-weight:700;text-decoration:none;display:flex;align-items:center">다음 · 메뉴 등록 ›</a>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const cur = 2;
+    const labels = ['사장님 시작', '매장 정보', '메뉴 등록', '기기 연결', '키오스크 모드'];
+    return {
+      steps: labels.map((label, i) => {
+        const n = i + 1, done = n < cur, now = n === cur;
+        return {
+          label, mark: done ? '✓' : String(n),
+          bg: now ? '#007A64' : 'transparent',
+          dot: done ? '#00C9A7' : now ? '#FFFFFF' : 'transparent',
+          ring: done || now ? '0' : '2px solid #4A5B57',
+          dotInk: done ? '#04342C' : now ? '#007A64' : '#8FA49F',
+          ink: done || now ? '#FFFFFF' : '#8FA49F',
+          weight: now ? '700' : '400'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

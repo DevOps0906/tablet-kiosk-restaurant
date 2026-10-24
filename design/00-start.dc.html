@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>시작 화면 매장 포장 선택</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:800px;height:1280px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;align-items:center;overflow:hidden">
+
+<div style="flex:none;width:100%;height:640px;box-sizing:border-box;background:#007A64;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+<span style="font-family:'Bebas Neue',sans-serif;font-size:96px;letter-spacing:2px;line-height:96px;color:#FFFFFF">[매장명]</span>
+<span style="font-size:24px;color:#D7F5EE">[대표 메뉴 사진 또는 프로모션 이미지 영역]</span>
+</div>
+
+<div style="flex:none;padding:64px 32px 40px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<span style="font-size:40px;font-weight:700;line-height:52px">어디서 드시나요?</span>
+<span style="font-size:22px;color:#4A5B57">선택하신 내용은 주문서에 함께 인쇄돼요</span>
+</div>
+
+<div style="flex:none;width:100%;box-sizing:border-box;padding:0 64px;display:flex;gap:24px">
+<a href="Main.dc.html" style="flex:1;height:260px;box-sizing:border-box;border-radius:28px;background:#FFFFFF;border:3px solid #007A64;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-decoration:none;color:#12201D">
+<svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#007A64" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18"></path><path d="M5 11l1 9"></path><path d="M19 11l-1 9"></path><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+<span style="font-size:40px;font-weight:700">매장</span>
+<span style="font-size:20px;color:#4A5B57">매장에서 먹고 갈게요</span>
+</a>
+<a href="Main.dc.html" style="flex:1;height:260px;box-sizing:border-box;border-radius:28px;background:#FFFFFF;border:3px solid #D5E2DE;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-decoration:none;color:#12201D">
+<svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#12201D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+<span style="font-size:40px;font-weight:700">포장</span>
+<span style="font-size:20px;color:#4A5B57">가져갈게요</span>
+</a>
+</div>
+
+<div style="flex:1"></div>
+
+<div style="flex:none;padding:0 32px 48px;display:flex;gap:12px">
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#12201D">한국어 · English</button>
+<button style="height:56px;padding:0 24px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#12201D">큰 글씨 · 낮은 화면</button>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":800,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

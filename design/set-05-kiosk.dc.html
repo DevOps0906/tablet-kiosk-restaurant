@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>세팅 5 키오스크 모드</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;overflow:hidden">
+
+<div style="width:300px;flex:none;box-sizing:border-box;background:#12201D;color:#FFFFFF;padding:36px 24px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:#00C9A7">[서비스명]</span><span style="font-size:16px;color:#B9CBC6">사장님 키오스크 설정</span></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<div style="height:56px;box-sizing:border-box;padding:0 14px;border-radius:14px;background:{{s.bg}};display:flex;align-items:center;gap:12px">
+<span style="width:32px;height:32px;flex:none;box-sizing:border-box;border-radius:16px;background:{{s.dot}};border:{{s.ring}};color:{{s.dotInk}};font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{s.mark}}</span>
+<span style="font-size:18px;font-weight:{{s.weight}};color:{{s.ink}}">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:auto;box-sizing:border-box;border-radius:14px;background:#1E312C;padding:16px;font-size:15px;line-height:24px;color:#B9CBC6">막히면 원격으로 도와드려요<br><b style="color:#FFFFFF">[고객센터 번호]</b></div>
+</div>
+
+<div style="flex:1;box-sizing:border-box;padding:44px 56px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:17px;font-weight:700;color:#007A64">5 / 5 · 마지막</span>
+<span style="font-size:32px;font-weight:700;line-height:42px">키오스크 모드 설정</span>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+
+<div style="box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:19px;font-weight:700">화면 방향</span>
+<div style="display:flex;gap:8px"><button aria-pressed="true" style="flex:1;height:50px;border:0;border-radius:12px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:17px;font-weight:700">가로 · 추천</button><button style="flex:1;height:50px;border:2px solid #D5E2DE;border-radius:12px;background:#FFFFFF;font-family:inherit;font-size:17px;color:#12201D">세로</button></div>
+<span style="font-size:14px;color:#4A5B57">갤럭시탭 A9+ · S9 가로 1280×800</span>
+</div>
+
+<div style="box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:19px;font-weight:700">결제 방법</span>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><span style="height:40px;padding:0 14px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">✓ 전체결제</span><span style="height:40px;padding:0 14px;border-radius:12px;background:#E8EFFE;color:#0B2F85;font-size:16px;font-weight:700;display:flex;align-items:center">✓ 더치페이</span></div>
+<span style="font-size:14px;color:#4A5B57">더치페이 방식: N등분 ✓ · 메뉴별(인분) ✓ · 금액 ✓</span>
+</div>
+
+<div style="box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:19px;font-weight:700">화면 잠금 · 복귀</span>
+<div style="display:flex;gap:8px"><span style="height:40px;padding:0 14px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">앱 고정 켜짐</span><span style="height:40px;padding:0 14px;border-radius:12px;background:#F4F8F7;font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;display:flex;align-items:center">30초 뒤 처음 화면</span></div>
+<span style="font-size:14px;color:#4A5B57">손님이 다른 앱으로 나갈 수 없어요</span>
+</div>
+
+<div style="box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:19px;font-weight:700">사장님 PIN</span>
+<div style="display:flex;gap:8px"><span style="width:48px;height:48px;border-radius:12px;background:#12201D"></span><span style="width:48px;height:48px;border-radius:12px;background:#12201D"></span><span style="width:48px;height:48px;border-radius:12px;background:#12201D"></span><span style="width:48px;height:48px;border-radius:12px;background:#12201D"></span></div>
+<span style="font-size:14px;color:#4A5B57">화면 오른쪽 위를 5번 누르고 PIN 입력 → 설정</span>
+</div>
+
+<div style="grid-column:span 2;box-sizing:border-box;background:#FFFFFF;border:2px solid #007A64;border-radius:18px;padding:18px 20px;display:flex;align-items:center;gap:24px">
+<span style="font-size:19px;font-weight:700;flex:none">식당 전용</span>
+<span style="height:40px;padding:0 14px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">호출번호 A-001부터</span>
+<span style="height:40px;padding:0 14px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">고기 최소 2인분</span>
+<span style="height:40px;padding:0 14px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">주문서에 매장/포장 크게</span>
+</div>
+
+</div>
+
+<div style="margin-top:auto;display:flex;justify-content:flex-end;gap:14px">
+<a href="set-04-devices.dc.html" style="height:68px;box-sizing:border-box;padding:0 28px;border:2px solid #D5E2DE;border-radius:16px;background:#FFFFFF;color:#12201D;font-size:20px;font-weight:700;text-decoration:none;display:flex;align-items:center">‹ 이전</a>
+<a href="sw-00-start.dc.html" style="height:68px;box-sizing:border-box;padding:0 44px;border-radius:16px;background:#007A64;color:#FFFFFF;font-size:22px;font-weight:700;text-decoration:none;display:flex;align-items:center">키오스크 시작하기 ›</a>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const cur = 5;
+    const labels = ['사장님 시작', '매장 정보', '메뉴 등록', '기기 연결', '키오스크 모드'];
+    return {
+      steps: labels.map((label, i) => {
+        const n = i + 1, done = n < cur, now = n === cur;
+        return {
+          label, mark: done ? '✓' : String(n),
+          bg: now ? '#007A64' : 'transparent',
+          dot: done ? '#00C9A7' : now ? '#FFFFFF' : 'transparent',
+          ring: done || now ? '0' : '2px solid #4A5B57',
+          dotInk: done ? '#04342C' : now ? '#007A64' : '#8FA49F',
+          ink: done || now ? '#FFFFFF' : '#8FA49F',
+          weight: now ? '700' : '400'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

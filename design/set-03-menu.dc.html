@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>세팅 3 메뉴 등록</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;overflow:hidden">
+
+<div style="width:300px;flex:none;box-sizing:border-box;background:#12201D;color:#FFFFFF;padding:36px 24px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:#00C9A7">[서비스명]</span><span style="font-size:16px;color:#B9CBC6">사장님 키오스크 설정</span></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<div style="height:56px;box-sizing:border-box;padding:0 14px;border-radius:14px;background:{{s.bg}};display:flex;align-items:center;gap:12px">
+<span style="width:32px;height:32px;flex:none;box-sizing:border-box;border-radius:16px;background:{{s.dot}};border:{{s.ring}};color:{{s.dotInk}};font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{s.mark}}</span>
+<span style="font-size:18px;font-weight:{{s.weight}};color:{{s.ink}}">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:auto;box-sizing:border-box;border-radius:14px;background:#1E312C;padding:16px;font-size:15px;line-height:24px;color:#B9CBC6">막히면 원격으로 도와드려요<br><b style="color:#FFFFFF">[고객센터 번호]</b></div>
+</div>
+
+<div style="flex:1;box-sizing:border-box;padding:44px 56px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:flex-end;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:17px;font-weight:700;color:#007A64">3 / 5</span>
+<span style="font-size:32px;font-weight:700;line-height:42px">메뉴 등록</span>
+</div>
+<button style="height:56px;padding:0 22px;border:0;border-radius:14px;background:#12201D;color:#FFFFFF;font-family:inherit;font-size:18px;font-weight:700">종이 메뉴판 사진으로 한 번에 등록</button>
+</div>
+
+<div style="flex:1;min-height:0;display:flex;gap:24px">
+
+<div style="width:400px;flex:none;box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<span style="height:38px;padding:0 14px;border-radius:19px;background:#12201D;color:#FFFFFF;font-size:16px;font-weight:700;display:flex;align-items:center">고기 4</span>
+<span style="height:38px;padding:0 14px;border-radius:19px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:16px;display:flex;align-items:center">식사 3</span>
+<span style="height:38px;padding:0 14px;border-radius:19px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:16px;display:flex;align-items:center">찌개·탕 2</span>
+<span style="height:38px;padding:0 14px;border-radius:19px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:16px;display:flex;align-items:center">+ 분류</span>
+</div>
+<sc-for list="{{menus}}" as="m" hint-placeholder-count="4">
+<div style="height:72px;box-sizing:border-box;border-radius:14px;border:{{m.border}};background:{{m.bg}};padding:0 14px;display:flex;align-items:center;gap:12px">
+<span style="width:48px;height:48px;flex:none;border-radius:10px;background:{{m.tint}}"></span>
+<div style="flex:1;display:flex;flex-direction:column"><span style="font-size:18px;font-weight:700">{{m.name}}</span><span style="font-size:14px;color:#4A5B57">{{m.unit}}</span></div>
+<span style="font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700">{{m.price}}</span>
+</div>
+</sc-for>
+<button style="height:52px;border:2px dashed #9BB0AB;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:17px;font-weight:700;color:#33433F">+ 메뉴 추가</button>
+</div>
+
+<div style="flex:1;min-width:0;box-sizing:border-box;background:#FFFFFF;border:2px solid #007A64;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;gap:16px">
+<div style="width:120px;height:120px;flex:none;box-sizing:border-box;border-radius:14px;background:#F4DCCB;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px"><span style="height:30px;padding:0 10px;border-radius:15px;background:#12201D;color:#FFFFFF;font-size:14px;font-weight:700;display:flex;align-items:center">사진 찍기</span></div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:10px">
+<label style="display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:700;color:#4A5B57">메뉴 이름<input readonly size="1" value="돼지갈비" style="height:48px;box-sizing:border-box;border:2px solid #D5E2DE;border-radius:12px;padding:0 12px;font-family:inherit;font-size:19px;color:#12201D"></label>
+<div style="display:flex;gap:10px">
+<label style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:700;color:#4A5B57">가격 (1인분)<input readonly size="1" value="16,000" style="height:48px;box-sizing:border-box;border:2px solid #D5E2DE;border-radius:12px;padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#12201D"></label>
+<label style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:700;color:#4A5B57">중량 표기<input readonly size="1" value="250g" style="height:48px;box-sizing:border-box;border:2px solid #D5E2DE;border-radius:12px;padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#12201D"></label>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:16px;font-weight:700">주문 단위</span><div style="display:flex;flex-wrap:wrap;gap:8px"><span style="height:42px;padding:0 14px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">인분 단위</span><span style="height:42px;padding:0 14px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">최소 2인분</span><span style="height:42px;padding:0 14px;border-radius:12px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:16px;display:flex;align-items:center">더치페이 1인분씩 나누기 ✓</span></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:16px;font-weight:700">함께 권하기</span><div style="display:flex;gap:8px"><span style="height:42px;padding:0 14px;border-radius:12px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:16px;display:flex;align-items:center">공깃밥</span><span style="height:42px;padding:0 14px;border-radius:12px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:16px;display:flex;align-items:center">된장찌개</span><span style="height:42px;padding:0 14px;border-radius:12px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:16px;display:flex;align-items:center">냉면</span></div></div>
+<div style="margin-top:auto;display:flex;gap:10px"><span style="height:44px;padding:0 16px;border-radius:12px;background:#F4F8F7;font-size:16px;display:flex;align-items:center">품절 표시 끔</span><span style="height:44px;padding:0 16px;border-radius:12px;background:#F4F8F7;font-size:16px;display:flex;align-items:center">주방 프린터로 출력</span><span style="flex:1"></span><button style="height:44px;padding:0 20px;border:0;border-radius:12px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:17px;font-weight:700">저장</button></div>
+</div>
+
+</div>
+
+<div style="display:flex;justify-content:flex-end;gap:14px">
+<a href="set-02-store.dc.html" style="height:60px;box-sizing:border-box;padding:0 28px;border:2px solid #D5E2DE;border-radius:16px;background:#FFFFFF;color:#12201D;font-size:20px;font-weight:700;text-decoration:none;display:flex;align-items:center">‹ 이전</a>
+<a href="set-04-devices.dc.html" style="height:60px;box-sizing:border-box;padding:0 36px;border-radius:16px;background:#007A64;color:#FFFFFF;font-size:20px;font-weight:700;text-decoration:none;display:flex;align-items:center">다음 · 기기 연결 ›</a>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const cur = 3;
+    const labels = ['사장님 시작', '매장 정보', '메뉴 등록', '기기 연결', '키오스크 모드'];
+    const src = [
+      { name: '돼지갈비', unit: '1인분 250g', price: '16,000', tint: '#F4DCCB', on: true },
+      { name: '소갈비', unit: '1인분 200g', price: '32,000', tint: '#EFD3C4' },
+      { name: '양념 LA갈비', unit: '1인분 300g', price: '28,000', tint: '#F2D8C6' },
+      { name: '돼지 생갈비', unit: '1인분 250g', price: '17,000', tint: '#F6E2D6' }
+    ];
+    return {
+      menus: src.map((m) => ({ ...m, border: m.on ? '2px solid #007A64' : '1px solid #E3ECE9', bg: m.on ? '#E3F7F2' : '#FFFFFF' })),
+      steps: labels.map((label, i) => {
+        const n = i + 1, done = n < cur, now = n === cur;
+        return {
+          label, mark: done ? '✓' : String(n),
+          bg: now ? '#007A64' : 'transparent',
+          dot: done ? '#00C9A7' : now ? '#FFFFFF' : 'transparent',
+          ring: done || now ? '0' : '2px solid #4A5B57',
+          dotInk: done ? '#04342C' : now ? '#007A64' : '#8FA49F',
+          ink: done || now ? '#FFFFFF' : '#8FA49F',
+          weight: now ? '700' : '400'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

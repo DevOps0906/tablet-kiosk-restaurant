@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>소프트웨어형 주류 음료 메뉴</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:80px;flex:none;box-sizing:border-box;padding:0 24px;background:#FFFFFF;border-bottom:1px solid #D5E2DE;display:flex;align-items:center;gap:16px">
+<span style="width:48px;height:48px;flex:none;border-radius:24px;background:#007A64;color:#FFFFFF;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center">로고</span>
+<span style="font-size:24px;font-weight:900">[가게 이름] 숯불갈비</span>
+<div role="tablist" aria-label="매장 또는 포장" style="margin-left:12px;width:240px;height:54px;box-sizing:border-box;padding:4px;border-radius:16px;background:#E3ECE9;display:flex;gap:4px">
+<button role="tab" aria-selected="true" style="flex:1;border:0;border-radius:12px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:19px;font-weight:700">매장</button>
+<button role="tab" aria-selected="false" style="flex:1;border:0;border-radius:12px;background:transparent;color:#4A5B57;font-family:inherit;font-size:19px;font-weight:700">포장</button>
+</div>
+<span style="flex:1"></span>
+<button style="height:52px;padding:0 20px;border:1px solid #D5E2DE;border-radius:26px;background:#FFFFFF;font-family:inherit;font-size:18px;color:#12201D">처음으로</button>
+<button style="height:52px;padding:0 20px;border:1px solid #D5E2DE;border-radius:26px;background:#FFFFFF;font-family:inherit;font-size:18px;color:#12201D">직원 호출</button>
+</div>
+
+<div style="flex:1;min-height:0;display:flex">
+
+<div style="width:150px;flex:none;box-sizing:border-box;background:#FFFFFF;border-right:1px solid #D5E2DE;padding:16px 12px;display:flex;flex-direction:column;gap:8px">
+<a href="sw-01-menu.dc.html" style="height:60px;border-radius:14px;color:#12201D;font-size:19px;text-decoration:none;display:flex;align-items:center;justify-content:center">전체</a>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#12201D;font-family:inherit;font-size:19px">고기</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#12201D;font-family:inherit;font-size:19px">식사</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#12201D;font-family:inherit;font-size:19px">찌개 · 탕</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#12201D;font-family:inherit;font-size:19px">사이드</button>
+<button aria-pressed="true" style="height:60px;border:0;border-radius:14px;background:#12201D;color:#FFFFFF;font-family:inherit;font-size:19px;font-weight:700">주류 · 음료</button>
+</div>
+
+<div style="flex:1;min-width:0;box-sizing:border-box;padding:16px 20px 20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+<div style="box-sizing:border-box;border-radius:14px;background:#FDE8E6;border:1px solid #C81E3F;padding:10px 16px;display:flex;align-items:center;gap:12px">
+<span style="width:36px;height:36px;flex:none;border-radius:18px;background:#C81E3F;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center">19</span>
+<span style="font-size:16px;line-height:24px;color:#8F1D14"><b>주류는 만 19세 이상만 주문 가능</b> · 가져다 드릴 때 직원이 신분증을 확인해요</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="8">
+<div style="position:relative;box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:16px;overflow:hidden">
+<div style="height:120px;background:{{item.tint}};display:flex;align-items:center;justify-content:center;font-size:14px;color:#4A5B57">사장님 촬영 사진</div>
+<sc-if value="{{item.adult}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:8px;top:8px;width:32px;height:32px;border-radius:16px;background:#C81E3F;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">19</div>
+</sc-if>
+<sc-if value="{{item.hasQty}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:17px;background:#007A64;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center">{{item.qty}}</div>
+</sc-if>
+<div style="padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px">
+<span style="font-size:18px;font-weight:700;line-height:24px">{{item.name}}</span>
+<span style="font-size:14px;color:#4A5B57">{{item.unit}}</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700">{{item.price}}원</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="width:340px;flex:none;box-sizing:border-box;background:#FFFFFF;border-left:1px solid #D5E2DE;padding:20px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:22px;font-weight:700">주문 내역</span><span style="height:34px;padding:0 12px;border-radius:10px;background:#007A64;color:#FFFFFF;font-size:17px;font-weight:700;display:flex;align-items:center">매장</span></div>
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="4">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #E3ECE9">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:700">{{l.name}}</span><span style="font-size:15px;color:#4A5B57">{{l.qty}}</span></div>
+<span style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700">{{l.total}}원</span>
+</div>
+</sc-for>
+<div style="flex:1"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:20px;font-weight:700">합계</span><span style="font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#007A64">72,000원</span></div>
+<a href="sw-02-cart.dc.html" style="height:72px;box-sizing:border-box;border-radius:18px;background:#007A64;color:#FFFFFF;font-size:22px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center">주문 확인 ›</a>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const base = [
+      { name: '소주', unit: '360ml', price: '5,000', tint: '#E3EEF2', adult: true },
+      { name: '맥주', unit: '500ml 병', price: '5,000', tint: '#FBF0CF', adult: true },
+      { name: '생맥주', unit: '500cc', price: '5,000', tint: '#F6E8C4', adult: true },
+      { name: '막걸리', unit: '750ml', price: '5,000', tint: '#F4F1EA', adult: true },
+      { name: '콜라', unit: '355ml', price: '2,000', tint: '#EDE3E3', adult: false },
+      { name: '사이다', unit: '355ml', price: '2,000', tint: '#E3F7F2', adult: false },
+      { name: '제로 콜라', unit: '355ml', price: '2,000', tint: '#E6EBF3', adult: false },
+      { name: '식혜', unit: '후식 · 1잔', price: '2,000', tint: '#F6EEDC', adult: false }
+    ];
+    return {
+      items: base.map((b) => ({ ...b, hasQty: !!b.qty })),
+      lines: [
+        { name: '돼지갈비', qty: '3인분', total: '48,000' },
+        { name: '물냉면', qty: '2그릇', total: '18,000' },
+        { name: '된장찌개', qty: '1', total: '4,000' },
+        { name: '공깃밥', qty: '2공기', total: '2,000' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

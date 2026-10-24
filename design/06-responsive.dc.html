@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>반응형 구간과 폰트 기준</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:720px;box-sizing:border-box;background:#FFFFFF;color:#12201D;font-family:'Noto Sans KR',sans-serif;padding:40px 48px;display:flex;flex-direction:column;gap:24px;overflow:hidden">
+
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:36px;font-weight:700;line-height:48px">반응형 구간 · 폰트 기준</span>
+<span style="font-size:18px;color:#4A5B57">왼쪽 화면 설계는 태블릿 구간(세로 800×1280)을 기준으로 그렸습니다.</span>
+</div>
+
+<div style="display:flex;flex-direction:column;border:1px solid #D5E2DE;border-radius:16px;overflow:hidden">
+
+<div style="display:grid;grid-template-columns:200px repeat(3,minmax(0,1fr));height:56px;background:#12201D;color:#FFFFFF;font-size:18px;font-weight:700;align-items:center">
+<span style="padding:0 20px">항목</span>
+<span style="padding:0 20px">모바일 (~767)</span>
+<span style="padding:0 20px;background:#007A64;height:56px;display:flex;align-items:center">태블릿 (768~1199) 기준</span>
+<span style="padding:0 20px">데스크탑 (1200~)</span>
+</div>
+
+<sc-for list="{{rows}}" as="row" hint-placeholder-count="8">
+<div style="display:grid;grid-template-columns:200px repeat(3,minmax(0,1fr));min-height:44px;border-top:1px solid #D5E2DE;align-items:stretch;font-size:17px">
+<span style="padding:10px 20px;color:#4A5B57;font-weight:500;display:flex;align-items:center">{{row.label}}</span>
+<span style="padding:10px 20px;display:flex;align-items:center;font-family:{{row.font}}">{{row.c1}}</span>
+<span style="padding:10px 20px;display:flex;align-items:center;background:#E3F7F2;font-weight:700;font-family:{{row.font}}">{{row.c2}}</span>
+<span style="padding:10px 20px;display:flex;align-items:center;font-family:{{row.font}}">{{row.c3}}</span>
+</div>
+</sc-for>
+
+</div>
+
+<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+<span style="font-size:17px;color:#4A5B57;margin-right:4px">색상</span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:28px;height:28px;border-radius:8px;background:#00C9A7"></span><span style="font-family:'JetBrains Mono',monospace;font-size:15px">#00C9A7 포인트</span></span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:28px;height:28px;border-radius:8px;background:#007A64"></span><span style="font-family:'JetBrains Mono',monospace;font-size:15px">#007A64 버튼</span></span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:28px;height:28px;border-radius:8px;background:#2563EB"></span><span style="font-family:'JetBrains Mono',monospace;font-size:15px">#2563EB 더치페이</span></span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:28px;height:28px;border-radius:8px;background:#F59E0B"></span><span style="font-family:'JetBrains Mono',monospace;font-size:15px">#F59E0B 안내</span></span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:28px;height:28px;border-radius:8px;background:#F43F5E"></span><span style="font-family:'JetBrains Mono',monospace;font-size:15px">#F43F5E 남은 금액·경고</span></span>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const t = "'Noto Sans KR',sans-serif";
+    const m = "'JetBrains Mono','Noto Sans KR',monospace";
+    return {
+      rows: [
+        { label: '주 용도', font: t, c1: '고객 휴대폰 QR 주문 · 사장님 확인', c2: '매장 키오스크 (세로)', c3: '대형 키오스크 · 관리자 대시보드' },
+        { label: '메뉴 그리드', font: t, c1: '2열', c2: '3열', c3: '4열' },
+        { label: '제목', font: m, c1: '24px', c2: '34px', c3: '40px' },
+        { label: '본문', font: m, c1: '16px', c2: '20px', c3: '22px' },
+        { label: '상품명', font: m, c1: '17px', c2: '22px', c3: '24px' },
+        { label: '가격 (JetBrains Mono)', font: m, c1: '18px', c2: '24px', c3: '26px' },
+        { label: '버튼 글자', font: m, c1: '18px', c2: '26px', c3: '28px' },
+        { label: '최소 터치 영역', font: m, c1: '48px', c2: '64px', c3: '72px' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>세팅 4 기기 연결</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;overflow:hidden">
+
+<div style="width:300px;flex:none;box-sizing:border-box;background:#12201D;color:#FFFFFF;padding:36px 24px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:#00C9A7">[서비스명]</span><span style="font-size:16px;color:#B9CBC6">사장님 키오스크 설정</span></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<div style="height:56px;box-sizing:border-box;padding:0 14px;border-radius:14px;background:{{s.bg}};display:flex;align-items:center;gap:12px">
+<span style="width:32px;height:32px;flex:none;box-sizing:border-box;border-radius:16px;background:{{s.dot}};border:{{s.ring}};color:{{s.dotInk}};font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{s.mark}}</span>
+<span style="font-size:18px;font-weight:{{s.weight}};color:{{s.ink}}">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:auto;box-sizing:border-box;border-radius:14px;background:#1E312C;padding:16px;font-size:15px;line-height:24px;color:#B9CBC6">막히면 원격으로 도와드려요<br><b style="color:#FFFFFF">[고객센터 번호]</b></div>
+</div>
+
+<div style="flex:1;box-sizing:border-box;padding:44px 56px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font-size:17px;font-weight:700;color:#007A64">4 / 5</span>
+<span style="font-size:32px;font-weight:700;line-height:42px">결제 단말 · 프린터 연결</span>
+</div>
+
+<div style="box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:16px 22px;display:flex;align-items:center;gap:14px">
+<span style="height:44px;padding:0 16px;border-radius:12px;background:#12201D;color:#FFFFFF;font-size:17px;font-weight:700;display:flex;align-items:center">갤럭시탭 (이 기기)</span>
+<span style="font-size:15px;color:#4A5B57">블루투스</span><span style="flex:none;width:40px;height:2px;background:#9BB0AB"></span>
+<span style="height:44px;padding:0 16px;border-radius:12px;background:#EEEDFE;color:#26215C;font-size:17px;font-weight:700;display:flex;align-items:center">카드 리더</span>
+<span style="font-size:15px;color:#4A5B57">와이파이 · LAN</span><span style="flex:none;width:40px;height:2px;background:#9BB0AB"></span>
+<span style="height:44px;padding:0 16px;border-radius:12px;background:#EEEDFE;color:#26215C;font-size:17px;font-weight:700;display:flex;align-items:center">영수증 · 주방 프린터</span>
+</div>
+
+<div style="flex:1;min-height:0;display:flex;gap:18px">
+
+<div style="flex:1;box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:20px;font-weight:700">① 카드 결제</span><span style="height:30px;padding:0 10px;border-radius:15px;background:#E3F7F2;color:#00473A;font-size:15px;font-weight:700;display:flex;align-items:center">연결됨</span></div>
+<label style="display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:700;color:#4A5B57">사업자등록번호<input readonly value="123-45-67890" style="height:46px;box-sizing:border-box;border:2px solid #D5E2DE;border-radius:12px;padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:18px;color:#12201D"></label>
+<span style="font-size:15px;line-height:22px;color:#4A5B57">카드 가맹: <b style="color:#00473A">승인 완료</b> · [VAN사]</span>
+<div style="box-sizing:border-box;border:2px solid #007A64;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:700">블루투스 카드 리더</span><span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#4A5B57">단말번호 [발급 번호] · 배터리 82%</span></div>
+<button style="margin-top:auto;height:50px;border:2px solid #D5E2DE;border-radius:12px;background:#FFFFFF;font-family:inherit;font-size:17px;font-weight:700;color:#12201D">테스트 결제 후 바로 취소</button>
+</div>
+
+<div style="flex:1;box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:20px;font-weight:700">② 영수증 프린터</span><span style="height:30px;padding:0 10px;border-radius:15px;background:#E3F7F2;color:#00473A;font-size:15px;font-weight:700;display:flex;align-items:center">연결됨</span></div>
+<div style="display:flex;gap:6px"><span style="flex:1;height:40px;border-radius:10px;background:#007A64;color:#FFFFFF;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">블루투스</span><span style="flex:1;height:40px;border-radius:10px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:15px;display:flex;align-items:center;justify-content:center">와이파이 · LAN</span></div>
+<div style="box-sizing:border-box;border:2px solid #007A64;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:700">카운터 프린터</span><span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#4A5B57">80mm · ESC/POS</span></div>
+<span style="font-size:15px;color:#4A5B57">출력: 고객 영수증 · 호출번호</span>
+<button style="margin-top:auto;height:50px;border:2px solid #D5E2DE;border-radius:12px;background:#FFFFFF;font-family:inherit;font-size:17px;font-weight:700;color:#12201D">테스트 출력</button>
+</div>
+
+<div style="flex:1;box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:20px;font-weight:700">③ 주방 프린터</span><span style="height:30px;padding:0 10px;border-radius:15px;background:#FDE8E6;color:#8F1D14;font-size:15px;font-weight:700;display:flex;align-items:center">찾는 중</span></div>
+<div style="display:flex;gap:6px"><span style="flex:1;height:40px;border-radius:10px;border:1px solid #D5E2DE;box-sizing:border-box;font-size:15px;display:flex;align-items:center;justify-content:center">블루투스</span><span style="flex:1;height:40px;border-radius:10px;background:#007A64;color:#FFFFFF;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">와이파이 · LAN</span></div>
+<label style="display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:700;color:#4A5B57">IP 주소 (자동 검색)<input readonly value="192.168.0.32 : 9100" style="height:46px;box-sizing:border-box;border:2px solid #C81E3F;border-radius:12px;padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:17px;color:#12201D"></label>
+<span style="font-size:15px;color:#4A5B57">출력: 고기 · 식사 · 찌개 주문서</span>
+<button style="margin-top:auto;height:50px;border:0;border-radius:12px;background:#12201D;font-family:inherit;font-size:17px;font-weight:700;color:#FFFFFF">다시 검색</button>
+</div>
+
+</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:14px">
+<span style="font-size:16px;color:#4A5B57">주방 프린터가 없으면 영수증 프린터 하나로 주방 주문서까지 출력할 수 있어요</span>
+<div style="display:flex;gap:14px">
+<a href="set-03-menu.dc.html" style="height:60px;box-sizing:border-box;padding:0 28px;border:2px solid #D5E2DE;border-radius:16px;background:#FFFFFF;color:#12201D;font-size:20px;font-weight:700;text-decoration:none;display:flex;align-items:center">‹ 이전</a>
+<a href="set-05-kiosk.dc.html" style="height:60px;box-sizing:border-box;padding:0 36px;border-radius:16px;background:#007A64;color:#FFFFFF;font-size:20px;font-weight:700;text-decoration:none;display:flex;align-items:center">다음 ›</a>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const cur = 4;
+    const labels = ['사장님 시작', '매장 정보', '메뉴 등록', '기기 연결', '키오스크 모드'];
+    return {
+      steps: labels.map((label, i) => {
+        const n = i + 1, done = n < cur, now = n === cur;
+        return {
+          label, mark: done ? '✓' : String(n),
+          bg: now ? '#007A64' : 'transparent',
+          dot: done ? '#00C9A7' : now ? '#FFFFFF' : 'transparent',
+          ring: done || now ? '0' : '2px solid #4A5B57',
+          dotInk: done ? '#04342C' : now ? '#007A64' : '#8FA49F',
+          ink: done || now ? '#FFFFFF' : '#8FA49F',
+          weight: now ? '700' : '400'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

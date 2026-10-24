@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>결제 방법 선택</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:800px;height:1280px;box-sizing:border-box;background:#F4F8F7;color:#12201D;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:96px;flex:none;box-sizing:border-box;padding:0 32px;background:#FFFFFF;border-bottom:1px solid #D5E2DE;display:flex;align-items:center;gap:20px">
+<button aria-label="주문 내역으로 돌아가기" style="height:56px;padding:0 22px;border:1px solid #D5E2DE;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#12201D">‹ 이전</button>
+<span style="font-size:34px;font-weight:700">결제</span>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:32px 32px 0">
+<div style="box-sizing:border-box;background:#FFFFFF;border:1px solid #D5E2DE;border-radius:20px;padding:24px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;justify-content:space-between">
+<span style="font-size:22px;font-weight:700">주문 요약</span>
+<span style="height:40px;padding:0 18px;border-radius:12px;background:#007A64;color:#FFFFFF;font-size:20px;font-weight:700;display:flex;align-items:center">매장</span>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:20px"><span>돼지갈비 × 3인분</span><span style="font-family:'JetBrains Mono',monospace">48,000원</span></div>
+<div style="display:flex;justify-content:space-between;font-size:20px"><span>물냉면 × 2</span><span style="font-family:'JetBrains Mono',monospace">18,000원</span></div>
+<div style="display:flex;justify-content:space-between;font-size:20px"><span>된장찌개 × 1</span><span style="font-family:'JetBrains Mono',monospace">4,000원</span></div>
+<div style="display:flex;justify-content:space-between;font-size:20px"><span>공깃밥 × 2</span><span style="font-family:'JetBrains Mono',monospace">2,000원</span></div>
+<div style="height:1px;background:#D5E2DE"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline">
+<span style="font-size:24px;font-weight:700">결제 금액</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:700;color:#007A64">72,000원</span>
+</div>
+</div>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:40px 32px 20px">
+<span style="font-size:28px;font-weight:700">결제 방법을 선택해 주세요</span>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:0 32px;display:flex;gap:24px">
+
+<button style="flex:1;height:240px;box-sizing:border-box;border:3px solid #007A64;border-radius:24px;background:#E3F7F2;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;font-family:inherit;color:#12201D">
+<div style="width:80px;height:80px;border-radius:22px;background:#007A64;display:flex;align-items:center;justify-content:center">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect><path d="M2.5 10h19"></path><path d="M6 15h4"></path></svg>
+</div>
+<span style="font-size:30px;font-weight:700">전체결제</span>
+<span style="font-size:19px;color:#00473A">한 번에 결제</span>
+</button>
+
+<button style="flex:1;height:240px;box-sizing:border-box;border:3px solid #2563EB;border-radius:24px;background:#E8EFFE;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;font-family:inherit;color:#12201D">
+<div style="width:80px;height:80px;border-radius:22px;background:#2563EB;display:flex;align-items:center;justify-content:center">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8.5" r="3"></circle><circle cx="17" cy="9.5" r="2.4"></circle><path d="M2.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"></path><path d="M14.5 14.6c.8-.4 1.6-.6 2.5-.6 2.6 0 4.5 1.7 4.5 4.4"></path></svg>
+</div>
+<span style="font-size:30px;font-weight:700">더치페이</span>
+<span style="font-size:19px;color:#0B2F85">N등분 · 메뉴별 · 금액</span>
+</button>
+
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:28px 32px 0">
+<a href="hw-coupon-serial.dc.html" style="box-sizing:border-box;height:92px;border-radius:18px;border:2px dashed #007A64;background:#FFFFFF;padding:0 24px;display:flex;align-items:center;gap:18px;text-decoration:none;color:#12201D">
+<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#007A64" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z"></path><path d="M9 5v14" stroke-dasharray="2 2"></path></svg>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:23px;font-weight:700">쿠폰 사용</span><span style="font-size:18px;color:#4A5B57">시리얼 번호 입력 · 바코드 스캔</span></div>
+<span style="margin-left:auto;font-size:32px;color:#007A64" aria-hidden="true">›</span>
+</a>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:20px 32px 0">
+<div style="box-sizing:border-box;border-radius:16px;background:#FEF3D7;padding:18px 22px;font-size:20px;line-height:30px;color:#7A4A00">더치페이를 시작하면 남은 금액이 0원이 될 때까지 이어서 결제해요. 문제가 생기면 직원을 호출해 주세요.</div>
+</div>
+
+<div style="flex:1"></div>
+
+<div style="height:128px;flex:none;box-sizing:border-box;padding:24px 32px;display:flex;gap:16px">
+<button style="flex:1;height:80px;border:2px solid #D5E2DE;border-radius:20px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:24px;font-weight:700">주문 내역으로</button>
+<button style="flex:1;height:80px;border:2px solid #D5E2DE;border-radius:20px;background:#FFFFFF;color:#12201D;font-family:inherit;font-size:24px;font-weight:700">직원 호출</button>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":800,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
