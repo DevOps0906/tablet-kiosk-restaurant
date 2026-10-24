@@ -1,5 +1,7 @@
 # CLAUDE.md — tablet-kiosk-restaurant (식당 설계서)
 
+> **이 저장소는 `goki-kiosk-restaurant`로 대체되었습니다.** 식당 작업은 `claude --add-dir ../goki-kiosk-restaurant`로 새 저장소를 여세요.
+
 ## 1. 이 저장소는 설계서입니다 (코드 없음)
 
 - 식당 업종의 **기획 · 디자인 · 화면 명세**만 있습니다.
